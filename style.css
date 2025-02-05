@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Tiny5&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geo:ital@0;1&display=swap');
+
+body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Tiny5", serif;
+  background-color:#ff9096;
+}
+
+input#open {
+  display: none;
+}
+
+.valentines-day-card {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+  transform: perspective(2500px);
+  transition: .3s;
+}
+
+.card-front {
+  position: relative;
+  background-color: #fff0f3;
+  width: 300px;
+  height: 300px;
+  transform-origin: left;
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.15), 30px 0 50px rgba(0,0,0,.3);
+  transition: .3s;
+}
+
+.card-front:before {
+  content:"";
+  position: absolute;
+  width: 280px;
+  height: 280px;
+  background-color: #db4673;
+  top: 10px;
+  left: 10px;
+}
+
+.card-inside {
+  position: absolute;
+  background-color: #fff0f3;
+  width: 300px;
+  height: 300px;
+  z-index: -1;
+  left: 0;
+  top: 0;
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.22), 100px 20px 100px rgba(0,0,0,.1);
+}
+
+.open {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  left: 0;
+  top: 0;
+  background-color: transparent;
+  z-index: 7;
+  cursor: pointer;
+}
+
+#open:checked ~ .card-front {
+  transform: rotateY(-155deg);
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.13), 30px 0 50px rgba(0,0,0,.1);
+}
+
+#open:checked ~ .card-front:before {
+  z-index: 5;
+  background-color: #fff0f3;
+  width: 300px;
+  height: 300px;
+  top: 0;
+  left: 0;
+  box-shadow: inset 100px 20px 100px rgba(0,0,0,.1), 30px 0 50px rgba(0,0,0,.1);
+}
+
+.note {
+  position: relative;
+  width: 209px;
+  height: 150px;
+  top: 75px;
+  left: 46px;
+  color: #9f1919;
+  background-color: #f48bc1;
+  font-size: 29px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  filter: drop-shadow(0 0 20px rgba(0,0,0,0.3));
+}
+
+.note:before, .note:after {
+  content:"";
+  position: absolute;
+  width: 0; 
+  height: 0; 
+  border-top: 30px solid transparent;
+  border-bottom: 30px solid transparent; 
+  border-right: 30px solid #ba1c1c; 
+}
+
+.note:before {
+  transform: rotate(-90deg);
+  top: 34px;
+  left: 254px;
+  box-shadow: -30px -30px #ba1c1c;
+}
+
+.note:after {
+  transform: rotate(-270deg);
+  top: 65px;
+  left: 254px;
+  box-shadow: -30px 30px #ba1c1c;
+}
+
+#open:checked ~ .open {
+  pointer-events: none;
+}
+
+.text-one {
+  position: absolute;
+  color: #333;
+  font-size: 30px;
+  top: 30px;
+  width: 300px;
+  text-align: center;
+}
+
+.text-one:before, .text-one:after {
+  position: absolute;
+  left: 5px;
+  text-align: center;
+  width: 300px;
+}
+
+.text-one:before {
+  content:"be my";
+  top: 40px;
+}
+
+.text-one:after {
+  content:"Valentines?";
+  top: 80px;
+  color: #ba1c1c
+}
+
+#option {
+  position: relative;
+  left: 60px;
+  top: 170px;
+}
+
+button {
+  padding: 10px 20px; /* Set padding for buttons */
+  margin: 0 10px; /* Set margin around buttons */
+  font-size: 20px; /* Set font size for buttons */
+  font-family: "Geo", serif; /* Apply Geo font to the options */
+  background-color: #fb607f;
+  color: white;
+  cursor: pointer;
+}
+
+#image-container {
+  position: absolute;
+  top: 48%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 9999;
+}
